@@ -39,7 +39,7 @@ const Page = () => {
           {
             [1, 2, 3, 4, 5].map((data, index) => {
               return (
-                <View key={index} className='overflow-hidden bg-red-400 rounded-xl'>
+                <View key={index} className='overflow-hidden bg-red-400 rounded-xl  my-2'>
                   <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 180, width: 300 }} />
                 </View>
               )
@@ -53,7 +53,7 @@ const Page = () => {
           {
             [1, 2, 3, 4, 5].map((data, index) => {
               return (
-                <View key={index} className='flex flex-col space-y-1'>
+                <View key={index} className='flex flex-col space-y-1  my-2'>
                   <View className='overflow-hidden bg-red-400 rounded-xl'>
                     <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 260 }} />
 
@@ -71,7 +71,7 @@ const Page = () => {
           {
             [1, 2, 3, 4, 5].map((data, index) => {
               return (
-                <View key={index} className='overflow-hidden bg-red-400 rounded-xl'>
+                <View key={index} className='overflow-hidden bg-red-400 rounded-xl my-2'>
                   <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
                 </View>
               )
