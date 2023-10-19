@@ -14,8 +14,11 @@ const Page = () => {
 
       {/* header */}
       <View className='flex-row justify-between items-center space-x-2 px-4 pb-2'>
-        <View style={{ backgroundColor: themeColors.bgColor(1) }} className='p-3 rounded-full'>
-          <Icon.User height={"20"} width={"20"} strokeWidth={"2.5"} stroke={"white"} />
+        <View className='flex-row items-center space-x-2'>
+          <View style={{ backgroundColor: themeColors.bgColor(1) }} className='flex-row overflow-hidden rounded-full'>
+            <Image source={require('../../../assets/images/app.png')} style={{ height: 45, width: 45 }} />
+          </View>
+          <Text className='text-sky-500  font-bold text-lg'>Manga<Text className='text-white'>verso</Text></Text>
         </View>
         <View className='flex-row items-center space-x-6'>
           <Icon.Search height={"25"} width={"25"} strokeWidth={"2.5"} stroke={"white"} />
@@ -68,7 +71,7 @@ const Page = () => {
           {
             [1, 2, 3, 4, 5].map((data, index) => {
               return (
-                <View className='overflow-hidden bg-red-400 rounded-xl'>
+                <View key={index} className='overflow-hidden bg-red-400 rounded-xl'>
                   <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
                 </View>
               )

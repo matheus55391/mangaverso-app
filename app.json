@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "mangaverso",
+    "name": "Mangaverso",
     "slug": "mangaverso",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#60A5FA"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,10 +19,7 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
+      "icon": "./assets/icon.png",
       "package": "com.matheusfelipevieirasantiago.mangaversoapp"
     },
     "plugins": [
