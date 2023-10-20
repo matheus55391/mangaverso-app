@@ -1,3 +1,10 @@
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -6,12 +13,15 @@ export const unstable_settings = {
   initialRouteName: '(tabs)',
 };
 
+const queryClient = new QueryClient()
 
 export default function RootLayoutNav() {
 
   return (
-    <SafeAreaProvider>
-      <Stack screenOptions={{ headerShown: false }} />
-    </SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <Stack screenOptions={{ headerShown: false }} />
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 }

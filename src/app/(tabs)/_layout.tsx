@@ -14,9 +14,9 @@ export default function _LayoutTabs() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Início',
+                    title: 'Mangas',
                     tabBarIcon: ({ color, focused, size }) => (
-                        <Icon.Home height={size} width={size} strokeWidth={"2.5"} stroke={color} />
+                        <Icon.BookOpen height={size} width={size} strokeWidth={"2.5"} stroke={color} />
                     ),
 
                     tabBarStyle: {
@@ -25,7 +25,7 @@ export default function _LayoutTabs() {
                     }
                 }}
             />
-            <Tabs.Screen
+            {/* <Tabs.Screen
                 name="mangas"
                 options={{
                     title: 'Mangas',
@@ -38,7 +38,7 @@ export default function _LayoutTabs() {
                         borderColor: 'rgb(39 39 42)',
                     }
                 }}
-            />
+            /> */}
             <Tabs.Screen
                 name="favorites"
                 options={{
