@@ -48,14 +48,14 @@ const Page = () => {
         </FeaturedRow>
 
         <FeaturedRow
-          title='Novos episódios'
+          title='Novos capítulos'
         >
           {
             [1, 2, 3, 4, 5].map((data, index) => {
               return (
                 <View key={index} className='flex flex-col space-y-1  my-2'>
                   <View className='overflow-hidden bg-red-400 rounded-xl'>
-                    <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 260 }} />
+                    <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
 
                   </View>
                   <Text className='text-white text-[16px] font-bold'>Jujutsu Kaisen</Text>
@@ -71,9 +71,14 @@ const Page = () => {
           {
             [1, 2, 3, 4, 5].map((data, index) => {
               return (
-                <View key={index} className='overflow-hidden bg-red-400 rounded-xl my-2'>
+                <View key={index} className='flex flex-col space-y-1  my-2'>
+                <View className='overflow-hidden bg-red-400 rounded-xl'>
                   <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
+
                 </View>
+                <Text className='text-white text-[16px] font-bold'>Jujutsu Kaisen</Text>
+                <Text className='text-gray-200 text-[12px]'>34. Pandemonium</Text>
+              </View>
               )
             })
           }
