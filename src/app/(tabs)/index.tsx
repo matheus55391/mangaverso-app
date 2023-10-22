@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
-import { View, ScrollView, Image, Text } from 'react-native'
+import { View, ScrollView, Image, Text, Pressable } from 'react-native'
 import * as Icon from "react-native-feather"
 import { themeColors } from '../../theme'
 import FeaturedRow from '../../components/HorizontalScroll'
 import { useQuery } from '@tanstack/react-query'
 import MangaService from '../../services/MangaService'
 import { Image as ExpoImage } from 'expo-image';
+import { Link, useRouter } from 'expo-router'
 
 const Page = () => {
   const { isFetched, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: () => MangaService.getAll(),
   })
-
 
 
   return (
@@ -93,14 +93,23 @@ const Page = () => {
                 {
                   [1, 2, 3, 4, 5].map((data, index) => {
                     return (
-                      <View key={index} className='flex flex-col space-y-1  my-2'>
-                        <View className='overflow-hidden bg-red-400 rounded-xl'>
-                          <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
 
+                      <Link href={{
+                        pathname: "/mangas/detail",
+                        params: { id: 1},
+                      }}>
+                        <View key={index} className='flex flex-col space-y-1  my-2'>
+                          <View className='overflow-hidden bg-red-400 rounded-xl'>
+                            <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
+
+                          </View>
+                          <Text className='text-white text-[16px] font-bold'>Jujutsu Kaisen</Text>
+                          <Text className='text-gray-200 text-[12px]'>34. Pandemonium</Text>
                         </View>
-                        <Text className='text-white text-[16px] font-bold'>Jujutsu Kaisen</Text>
-                        <Text className='text-gray-200 text-[12px]'>34. Pandemonium</Text>
-                      </View>
+
+                      </Link>
+
+
                     )
                   })
                 }
@@ -110,7 +119,7 @@ const Page = () => {
           </>
       }
 
-    </SafeAreaView>
+    </SafeAreaView >
   )
 }
 
