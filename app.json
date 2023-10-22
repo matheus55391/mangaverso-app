@@ -22,6 +22,9 @@
       "icon": "./assets/icon.png",
       "package": "com.matheusfelipevieirasantiago.mangaversoapp"
     },
+    "web": {
+      "bundler": "metro"
+    },
     "plugins": [
       "expo-router",
       "@react-native-google-signin/google-signin"
