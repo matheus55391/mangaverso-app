@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
-import { View, ScrollView, Image, Text, Pressable } from 'react-native'
+import { View, ScrollView, Image, Text } from 'react-native'
 import * as Icon from "react-native-feather"
 import { themeColors } from '../../theme'
 import FeaturedRow from '../../components/HorizontalScroll'
 import { useQuery } from '@tanstack/react-query'
 import MangaService from '../../services/MangaService'
-import { Image as ExpoImage } from 'expo-image';
-import { Link, useRouter } from 'expo-router'
+import { Image as ExpoImage } from 'expo-image'
+import { Link } from 'expo-router'
 
 const Page = () => {
   const { isFetched, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: () => MangaService.getAll(),
   })
-
 
   return (
     <SafeAreaView className='bg-zinc-800' style={{ flex: 1, maxHeight: '100%' }}>
@@ -54,10 +53,16 @@ const Page = () => {
                 title='Em alta'
               >
                 {
-                  [1, 2, 3, 4, 5].map((data, index) => {
+                  data?.data.map((data, index) => {
                     return (
-                      <View key={index} className='overflow-hidden bg-red-400 rounded-xl  my-2'>
-                        <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 180, width: 300 }} />
+                      <View key={index + data.id} className='overflow-hidden bg-red-400 rounded-xl  my-2'>
+                        <ExpoImage
+                          style={{ height: 180, width: 300 }}
+                          source={data.posterUrl}
+                          // placeholder={blurhash}
+                          contentFit="fill"
+                          transition={250}
+                        />
                       </View>
                     )
                   })
@@ -91,17 +96,22 @@ const Page = () => {
                 title='Recém adicionados'
               >
                 {
-                  [1, 2, 3, 4, 5].map((data, index) => {
+                  data?.data.map((data, index) => {
                     return (
 
                       <Link href={{
                         pathname: "/mangas/detail",
-                        params: { id: 1},
+                        params: { id: 1 },
                       }}>
                         <View key={index} className='flex flex-col space-y-1  my-2'>
                           <View className='overflow-hidden bg-red-400 rounded-xl'>
-                            <Image source={require('../../../assets/images/pizzaCat.png')} style={{ height: 160, width: 120 }} />
-
+                            <ExpoImage
+                              style={{ height: 160, width: 120 }}
+                              source={data.posterUrl}
+                              // placeholder={blurhash}
+                              contentFit="fill"
+                              transition={250}
+                            />
                           </View>
                           <Text className='text-white text-[16px] font-bold'>Jujutsu Kaisen</Text>
                           <Text className='text-gray-200 text-[12px]'>34. Pandemonium</Text>
