@@ -99,11 +99,11 @@ const Page = () => {
                   data?.data.map((data, index) => {
                     return (
 
-                      <Link href={{
+                      <Link key={index} href={{
                         pathname: "/mangas/detail",
                         params: { id: 1 },
                       }}>
-                        <View key={index} className='flex flex-col space-y-1  my-2'>
+                        <View className='flex flex-col space-y-1  my-2'>
                           <View className='overflow-hidden bg-red-400 rounded-xl'>
                             <ExpoImage
                               style={{ height: 160, width: 120 }}
